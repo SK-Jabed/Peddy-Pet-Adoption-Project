@@ -32,8 +32,9 @@
               'tertiaryTextColor': 'rgba(17, 17, 17, 0.4)',
               'userBorderColor': '#0E7A8120',
               'secondaryBorderColor': 'rgba(17, 17, 17, 0.3)',
-              'buttonColor': '#B4F461',
-              'coinButtonColor': 'rgba(17, 17, 17, 0.05)',              
+              'emailInputColor': '#FFFFFF05',
+              'footerInfoColor': '#FFFFFF90',              
+              'footerMenuColor': '#FFFFFF60',              
             },
             fontFamily: {
               "lato": ["Lato"],
@@ -118,52 +119,61 @@
 
     </main>
     <!-- Footer section start here -->
-    <footer id="footer-section bg-black">
-      <div class="container w-11/12 mx-auto py-10">
-        <div class="content-row">
+    <footer class="footer bg-primaryTextColor mt-8">
+      <div class="container w-11/12 mx-auto py-10 px-5">
+        <div class="footer-content mx-auto grid grid-cols-2 lg:grid-cols-3 lg:gap-80 md:gap-52 justify-center items-center">
           <div class="first-row">
             <div class="navbar-start text-left">
               <a class="flex items-center gap-2" href="index.html">
                 <img src="./images/logo.webp" alt="Logo">
-                <span class="text-2xl md:text-3xl font-extrabold text-primaryTextColor">Peddy</span>
+                <span class="text-2xl md:text-3xl font-extrabold text-primaryColor">Peddy</span>
               </a>           
             </div>
             <div class="info">
-              <p>Location: av. Washington 165, NY CA 54003</p>
-              <p>Phone: +31 85 964 47 25</p>
-              <p>Email: info@yourdomain.com</p>
-              <p>Openings hours: 9.00 AM - 5.00 PM</p>
+              <p class="text-sm text-footerInfoColor">Location: av. Washington 165, NY CA 54003</p>
+              <p class="text-sm text-footerInfoColor">Phone: +31 85 964 47 25</p>
+              <p class="text-sm text-footerInfoColor">Email: info@yourdomain.com</p>
+              <p class="text-sm text-footerInfoColor">Openings hours: 9.00 AM - 5.00 PM</p>
             </div>
-            <div class="icons">
-              <img src="" alt="">
-              <img src="" alt="">
-              <img src="" alt="">
-              <img src="" alt="">
-            </div>           
+            <div class="icons flex items-center gap-4 mt-2">
+              <img class="w-8" src="./images/facebook.png" alt="">
+              <img class="w-9" src="./images/Twitter.png" alt="">
+              <img class="w-10" src="./images/youtube-logo-youtube-logo.webp" alt="">
+              <img class="w-8" src="./images/62-instagram-512.webp" alt="">
+            </div> 
+          </div>         
+          <div class="second-row my-3 text-left">
+            <h2 class="text-sm font-bold text-primaryColor">Useful Links</h2>
+            <ul class="flex flex-col px-1">
+              <li><a class="text-4 text-neutral-300 transition duration-300 ease-in-out hover:text-white" href="#home">Home</a></li>
+              <li><a class="text-4 text-neutral-300 transition duration-300 ease-in-out hover:text-white" href="#services">Services</a>
+              </li>
+              <li><a class="text-4 text-neutral-300 transition duration-300 ease-in-out hover:text-white" href="#portfolio">Portfolio</a>
+              </li>
+              <li><a class="text-4 text-neutral-300 transition duration-300 ease-in-out hover:text-white" href="#blogs">Blogs</a></li>
+              <li><a class="text-4 text-neutral-300 transition duration-300 ease-in-out hover:text-white" href="#contact-us">Contact Us</a>
+              </li>
+            </ul>
           </div>
-          <div class="second-row">
-            <div class="section">
-              <h1>Get Started</h1>
-              <ul>
-                <li><a href="#">Service</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Affiliate Program</a></li>
-                <li><a href="#">About Us</a></li>
-              </ul>
-            </div>
-            <div class="section">
-              <h1>Get Started</h1>
-              <ul>
-                <li><a href="#">Fitness</a></li>
-                <li><a href="#">Platform</a></li>
-                <li><a href="#">Workout Libary</a></li>
-                <li><a href="#">App Design</a></li>
-              </ul>
+          <div class="third-row my-6 md:mt-10">
+            <h2 class="text-sm font-bold text-primaryColor mb-8">Drop a Message</h2>
+            <label class="input input-bordered flex items-center gap-2 bg-emailInputColor">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                class="h-4 w-4 text-white">
+                <path
+                  d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z" />
+                <path
+                  d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
+              </svg>
+              <input class="text-primaryColor" type="text" class="grow" placeholder="Enter your email" />
+            </label>
+            <div class="subscribe-btn mt-4">
+              <button class="btn w-full bg-secondaryColor border-none"><a class="px-8 py-4 text-primaryColor font-bold" href="#">Subscribe</a></button>  
             </div>
           </div>
-        </div>
-        <div class="footer">
-          <h1>All right reserved @Fitness 2024</h1>
         </div>
       </div>
     </footer>
