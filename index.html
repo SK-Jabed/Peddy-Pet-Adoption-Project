@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Assignment-6</title>
+    <!-- Favicon Added -->
+    <link rel="shortcut icon" href="./images/logo.webp" type="image/x-icon">
+
+    <!-- Font: Lato and Inter Font Imported -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    
+    <!-- Link: Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Link: Tailwind CSS & DaisyUI CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind CSS Configuration -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'primaryColor': '#FFFFFF',
+              'secondaryColor': '#0E7A81',
+              'primaryTextColor': '#131313',
+              'secondaryTextColor': '#13131360',
+              'tertiaryTextColor': 'rgba(17, 17, 17, 0.4)',
+              'userBorderColor': '#0E7A8120',
+              'secondaryBorderColor': 'rgba(17, 17, 17, 0.3)',
+              'buttonColor': '#B4F461',
+              'coinButtonColor': 'rgba(17, 17, 17, 0.05)',              
+            },
+            fontFamily: {
+              "lato": ["Lato"],
+            }
+          }
+        }
+      }
+    </script>
+  </head>
+  <body class="font-lato">
+    <!-- Header Section Starts Here -->
+    <header>
+    <!-- Navbar section start here -->
+    <nav class="container w-11/12 mx-auto py-10">
+      <div class="navbar-content lg:mx-4">
+        <div class="navbar flex justify-between items-center mx-auto">
+          <div class="navbar-start text-left">
+            <a class="flex items-center gap-2" href="index.html">
+              <img src="./images/logo.webp" alt="Logo">
+              <span class="text-2xl md:text-3xl font-extrabold text-primaryTextColor">Peddy</span>
+            </a>           
+          </div>
+          <div class="navbar-center hidden lg:flex">
+            <ul class="menu-options flex gap-9 px-1 font-medium">
+              <li><a class="text-xl font-bold hover:font-bold transition duration-300 ease-in-out" href="#home">Home</a></li>
+              <li><a class="text-xl text-tertiary-color hover:transition duration-300 ease-in-out hover:font-bold text-black" href="#services">Shop</a></li>
+              <li><a class="text-xl text-tertiary-color hover:transition duration-300 ease-in-out hover:font-bold" href="#contact-us">Contact</a>
+            </ul>
+          </div>
+          <div class="navbar-end flex">
+            <div class="item gap-2 items-center">
+              <a href="#">
+                <i class="fa-regular fa-user p-3 bg-white rounded-full border-2 border-solid border-userBorderColor"></i>
+              </a>
+            </div>
+            <div class="dropdown lg:hidden relative ml-2">
+              <div tabindex="0" role="button" class="btn p-4 bg-userBorderColor border-2 border-solid rounded-full lg:hidden">
+                <i class="fa-solid fa-bars"></i>
+              </div>
+              <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow absolute right-0">
+                <li><a class="text-xl font-bold hover:font-bold transition duration-300 ease-in-out" href="#home">Home</a></li>
+              <li><a class="text-xl text-tertiary-color hover:transition duration-300 ease-in-out hover:font-bold text-black" href="#">Shop</a></li>
+              <li><a class="text-xl text-tertiary-color hover:transition duration-300 ease-in-out hover:font-bold" href="#">Contact</a>
+              </ul>
+            </div>
+          </div>
+        </div>       
+      </div>
+    </nav>
+    <!-- Navbar section end here -->
+    <!-- Hero Section Starts Here -->
+    <div class="hero-section mb-10">
+      <div class="container w-11/12 mx-auto px-5 lg:px-20 mt-4">
+        <div class="hero-content mx-3 flex flex-col justify-center">         
+          <div class="hero-description md:w-10/12 mx-auto flex flex-col justify-center">
+            <div class="text-with-emoji flex justify-center">
+              <h2 class="text-center text-xl md:text-2xl lg:text-3xl text-secondaryTextColor font-bold mb-8">
+                Bringing Families Together
+              </h2>
+              <span class="text-3xl">&thinsp;❤️‍🔥</span>
+            </div>           
+            <h1 class="text-center text-3xl md:text-4xl lg:text-6xl font-extrabold text-primaryTextColor mb-6 w-3/4 mx-auto">
+              Your Path to Adoption Starts Here
+            </h1>
+            <p class="text-primaryTextColor text-base font-medium text-center w-3/4 mx-auto">
+              It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.
+            </p>
+            <div class="view-more-btn mx-auto mt-8">
+              <button class="btn sm:w-full bg-secondaryColor border-none"><a class="px-8 py-4 text-primaryColor font-bold" href="#">View &thinsp;More</a></button>  
+            </div>
+          </div>
+          <div class="hero-image">
+            <img class="mx-auto mt-6" src="./images/pet.webp" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Hero Section Ends Here -->
+    </header>
+    <!-- Header Section Ends Here -->
+    <main>
+
+    </main>
+    <!-- Footer section start here -->
+    <footer id="footer-section bg-black">
+      <div class="container w-11/12 mx-auto py-10">
+        <div class="content-row">
+          <div class="first-row">
+            <div class="navbar-start text-left">
+              <a class="flex items-center gap-2" href="index.html">
+                <img src="./images/logo.webp" alt="Logo">
+                <span class="text-2xl md:text-3xl font-extrabold text-primaryTextColor">Peddy</span>
+              </a>           
+            </div>
+            <div class="info">
+              <p>Location: av. Washington 165, NY CA 54003</p>
+              <p>Phone: +31 85 964 47 25</p>
+              <p>Email: info@yourdomain.com</p>
+              <p>Openings hours: 9.00 AM - 5.00 PM</p>
+            </div>
+            <div class="icons">
+              <img src="" alt="">
+              <img src="" alt="">
+              <img src="" alt="">
+              <img src="" alt="">
+            </div>           
+          </div>
+          <div class="second-row">
+            <div class="section">
+              <h1>Get Started</h1>
+              <ul>
+                <li><a href="#">Service</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Affiliate Program</a></li>
+                <li><a href="#">About Us</a></li>
+              </ul>
+            </div>
+            <div class="section">
+              <h1>Get Started</h1>
+              <ul>
+                <li><a href="#">Fitness</a></li>
+                <li><a href="#">Platform</a></li>
+                <li><a href="#">Workout Libary</a></li>
+                <li><a href="#">App Design</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          <h1>All right reserved @Fitness 2024</h1>
+        </div>
+      </div>
+    </footer>
+    <!-- Footer section end here -->
+    <script src="./js/main.js"></script>
+  </body>
+</html>
