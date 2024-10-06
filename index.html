@@ -130,17 +130,14 @@
       <!-- Best Friend Ends Here -->
     </main>
     <!-- Footer section start here -->
-    <footer class="footer bg-primaryTextColor mt-8">
-      <div class="container w-11/12 mx-auto py-10 px-5">
-        <div class="footer-content mx-auto grid grid-cols-2 lg:grid-cols-3 lg:gap-80 md:gap-52 justify-center items-center">
-          <div class="first-row">
-            <div class="navbar-start text-left">
-              <a class="flex items-center gap-2" href="index.html">
-                <img src="./images/logo.webp" alt="Logo">
-                <span class="text-2xl md:text-3xl font-extrabold text-primaryColor">Peddy</span>
-              </a>           
-            </div>
-            <div class="info">
+    <footer class="w-full bg-primaryTextColor mt-8">
+      <section class="container lg:w-11/12 mx-auto width py-20 flex lg:justify-between lg:flex-row flex-col gap-12 lg:px-0 px-10">
+          <div class="left-side-content text-primaryColor flex flex-col gap-2 items-start">
+            <a class="flex items-center gap-2" href="index.html">
+              <img src="./images/logo.webp" alt="Logo">
+              <span class="text-2xl md:text-3xl font-extrabold text-primaryColor">Peddy</span>
+            </a> 
+            <div class="info mt-6 flex flex-col gap-1">
               <p class="text-sm text-footerInfoColor">Location: av. Washington 165, NY CA 54003</p>
               <p class="text-sm text-footerInfoColor">Phone: +31 85 964 47 25</p>
               <p class="text-sm text-footerInfoColor">Email: info@yourdomain.com</p>
@@ -152,23 +149,23 @@
               <a><img class="w-10" src="./images/youtube-logo.webp" alt=""></a>
               <a><img class="w-8" src="./images/instagram-logo.webp" alt=""></a>
             </div> 
-          </div>         
-          <div class="second-row my-3 text-left">
-            <h2 class="text-sm font-bold text-primaryColor">Useful Links</h2>
-            <ul class="flex flex-col px-1">
-              <li><a class="text-4 text-neutral-300 transition duration-300 ease-in-out hover:text-white" href="#home">Home</a></li>
-              <li><a class="text-4 text-neutral-300 transition duration-300 ease-in-out hover:text-white" href="#services">Services</a>
-              </li>
-              <li><a class="text-4 text-neutral-300 transition duration-300 ease-in-out hover:text-white" href="#portfolio">Portfolio</a>
-              </li>
-              <li><a class="text-4 text-neutral-300 transition duration-300 ease-in-out hover:text-white" href="#blogs">Blogs</a></li>
-              <li><a class="text-4 text-neutral-300 transition duration-300 ease-in-out hover:text-white" href="#contact-us">Contact Us</a>
-              </li>
-            </ul>
           </div>
-          <div class="third-row my-6 md:mt-10">
+          <div class="middle-content text-primaryColor flex flex-col gap-2 items-start">
+              <h2 class="text-xl lg:text-2xl font-bold text-primaryColor mb-8">Useful Links</h2>
+              <ul class="flex flex-col gap-3">
+                <li><a class="text-4 text-neutral-300 transition duration-300 ease-in-out hover:text-white" href="#home">Home</a></li>
+                <li><a class="text-4 text-neutral-300 transition duration-300 ease-in-out hover:text-white" href="#services">About Us</a>
+                </li>
+                <li><a class="text-4 text-neutral-300 transition duration-300 ease-in-out hover:text-white" href="#portfolio">Animals</a>
+                </li>
+                <li><a class="text-4 text-neutral-300 transition duration-300 ease-in-out hover:text-white" href="#blogs">Foundation</a></li>
+                <li><a class="text-4 text-neutral-300 transition duration-300 ease-in-out hover:text-white" href="#contact-us">Contact</a>
+                </li>
+              </ul>
+          </div>
+          <div class="text-primaryColor flex flex-col gap-2 items-start">
             <h2 class="text-sm font-bold text-primaryColor mb-8">Drop a Message</h2>
-            <label class="input input-bordered flex items-center gap-2 bg-emailInputColor">
+            <label class="input input-bordered flex items-center gap-2 bg-emailInputColor w-full">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 16 16"
@@ -179,14 +176,13 @@
                 <path
                   d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
               </svg>
-              <input class="text-primaryColor" type="text" class="grow" placeholder="Enter your email" />
+              <input class="text-primaryColor w-full" type="text" class="grow" placeholder="Enter your email" />
             </label>
-            <div class="subscribe-btn mt-4">
+            <div class="subscribe-btn mt-4 w-full">
               <button class="btn w-full bg-secondaryColor border-none"><a class="px-8 py-4 text-primaryColor font-bold" href="#">Subscribe</a></button>  
             </div>
           </div>
-        </div>
-      </div>
+      </section>
     </footer>
     <!-- Footer section end here -->
     <script src="./js/main.js"></script>
