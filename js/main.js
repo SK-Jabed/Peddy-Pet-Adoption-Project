@@ -92,8 +92,6 @@ breed}</p>
 
 
 
-
-
 // Create Display Catagories
 const displayCatagories = (categories) => {
     const categoryContainer = document.getElementById("categories-btn");
@@ -108,10 +106,8 @@ const displayCatagories = (categories) => {
     });
 
     // Create a Button
-
-    
+   
 }
-
 
 
 loadCatagories();
