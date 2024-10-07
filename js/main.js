@@ -76,6 +76,24 @@ const displayDetails = (petDetails) => {
     `
 }
 
+
+const displayAdoptModal = (petAdopt) => {
+    // console.log(petDetails);
+    const adoptContainer = document.getElementById("adopt-modal-content");
+    document.getElementById("adoptModal").showModal();
+
+    adoptContainer.innerHTML = `
+     <div id="adopt-popup" class="w-96 h-72 bg-white rounded-lg overflow-auto p-8 flex flex-col justify-center items-center gap-4">
+              <img width="48" height="48" src="https://img.icons8.com/emoji/48/confetti-ball.png" alt="confetti-ball">
+              <h2 class="text-4xl font-black">Congratulation</h2>
+              <p>Adoption Process is Start For your Pet</p>
+              <h1 id="count" class="text-6xl font-black">0</h1>
+          </div>
+    `
+}
+
+
+
 // {
 //     "status": true,
 //     "message": "successfully fetched pet data using id 1",
@@ -155,7 +173,7 @@ breed}</p>
   
               <div class="grid grid-cols-3 gap-2 pt-3 border-t-2">
                   <button id="3-like" class="btn px-0"><img width="25" height="25" src="https://img.icons8.com/material-outlined/25/facebook-like.png" alt="facebook-like"></button>
-                  <button id="3-adopt" class="btn px-0 text-[#0E7A81]">Adopt</button>
+                  <button onclick="displayAdoptModal('petAdopt')" id="3-adopt" class="btn px-0 text-[#0E7A81]">Adopt</button>
                   <button onclick="loadDetails(${pet.petId})" id="3-details" class="btn px-0 text-[#0E7A81]">Details</button>
               </div>
           </div>
@@ -174,7 +192,7 @@ const displayCatagories = (categories) => {
     const buttonContainer = document.createElement("div");
     buttonContainer.classList = "flex lg:justify-between lg:items-center mb-8 gap-2 md:gap-4";
     buttonContainer.innerHTML = `
-    <button id="btn-${item.category}" onclick="loadCategoryPets('${item.category}')" class="catagories-btn py-4 h-20 rounded-xl bg-primaryColor border-2 border-grey-300 font-extrabold text-xl hover:border-2 hover:border-secondaryColor hover:rounded-full hover:bg-userBorderColor w-full flex items-center justify-center gap-2 lg:px-16" id=${item.id}><img class="object-cover h-full" src="${item.category_icon}" alt="">${item.category}</button>
+    <button id="btn-${item.category}" onclick="loadCategoryPets('${item.category}'), handleLoader()" class="catagories-btn py-4 h-20 rounded-xl bg-primaryColor border-2 border-grey-300 font-extrabold text-xl hover:border-2 hover:border-secondaryColor hover:rounded-full hover:bg-userBorderColor w-full flex items-center justify-center gap-2 lg:px-16" id=${item.id}><img class="object-cover h-full" src="${item.category_icon}" alt="">${item.category}</button>
     `;
     // Add Button to Container
     categoryContainer.append(buttonContainer);
@@ -183,6 +201,12 @@ const displayCatagories = (categories) => {
     // Create a Button
    
 }
+
+
+// let button = document.getElementById("btn-${item.category}");
+// button.onclick = () => {
+//     console.log("First arrow function!");
+//   };
 
 
 loadCatagories();

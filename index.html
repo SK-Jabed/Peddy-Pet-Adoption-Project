@@ -174,8 +174,32 @@
           </div>
         </div>
       </dialog>
+
+      <!-- Adopted Modal -->
+      <!-- Open the modal using ID.showModal() method -->
+      <button class="btn hidden" onclick="adoptModal.showModal()">open modal</button>
+      <dialog id="adoptModal" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box ">
+          <div id="adopt-modal-content">
+           
+          </div>
+          
+
+          <div class="modal-action">
+            <form method="dialog">
+              <!-- if there is a button in form, it will close the modal -->
+               <div class="">
+                <button class="modal-btn px-28 py-4 font-bold text-xl bg-[#0E7A8120] rounded-xl w-full">Cancel</button>
+               </div>
+              
+            </form>
+          </div>
+        </div>
+      </dialog>
+
     </main>
     <!-- Footer section start here -->
+    <span class="loading loading-bars loading-lg w-12"></span>
     <footer class="w-full bg-primaryTextColor mt-8">
       <section class="container lg:w-11/12 mx-auto width py-20 flex lg:justify-between lg:flex-row flex-col gap-12 lg:px-0 px-10">
           <div class="left-side-content text-primaryColor flex flex-col gap-2 items-start">
