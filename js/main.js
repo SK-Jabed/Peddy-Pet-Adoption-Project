@@ -127,7 +127,7 @@ const displayCatagories = (categories) => {
     const buttonContainer = document.createElement("div");
     buttonContainer.classList = "flex lg:justify-between lg:items-center mb-8 gap-2 md:gap-4";
     buttonContainer.innerHTML = `
-    <button onclick="loadCategoryPets('${item.category}')" class="btn btn-outline text-xl px-12" id=${item.id}><img class="object-cover h-full py-2" src="${item.category_icon}" alt="">${item.category}</button>
+    <button onclick="loadCategoryPets('${item.category}')" class="catagories-btn py-4 h-20 rounded-xl bg-primaryColor border-2 border-grey-300 font-extrabold text-xl hover:border-2 hover:border-secondaryColor hover:rounded-full hover:bg-userBorderColor w-full flex items-center justify-center gap-2 lg:px-16" id=${item.id}><img class="object-cover h-full" src="${item.category_icon}" alt="">${item.category}</button>
     `;
     // Add Button to Container
     categoryContainer.append(buttonContainer);
