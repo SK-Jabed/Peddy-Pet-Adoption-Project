@@ -34,10 +34,47 @@ const loadCategoryPets = (category) => {
         .catch((error => console.log(error)))
 }
 
-const loadDetails = () => {
-
+const loadDetails = (petId) => {
+    // console.log(petId);
+    fetch(`https://openapi.programming-hero.com/api/peddy/pet/${petId}`)
+        .then(response => response.json())
+        .then(data => displayDetails(data.petData))
+        .catch((error => console.log(error)))
 }
 
+
+const displayDetails = (petDetails) => {
+    // console.log(petDetails);
+    const detailsContainer = document.getElementById("modal-content");
+    document.getElementById("detailsModal").showModal();
+
+    detailsContainer.innerHTML = `
+    <div class="w-8/12 h-4/5 bg-white rounded-lg overflow-auto p-8">
+            <img class="rounded-xl w-full" src="https://i.ibb.co.com/PFbWMGk/pet-6.jpg" alt="Shoes">
+            <div class="mt-4">
+                <h2 class="text-xl font-bold mb-2">Leo</h2>
+                <p class="flex gap-1 font-normal text-[#131313B3] mb-1"><img width="24" height="24" src="https://img.icons8.com/ios-glyphs/24/bulldog.png" alt="bulldog">Breed: Bengal</p>
+                <p class="flex gap-1 font-normal text-[#131313B3] mb-1"><img width="20" height="20" src="https://img.icons8.com/ios/20/birth-date.png" alt="birth-date">Birth: unknown</p>
+                <p class="flex gap-1 font-normal text-[#131313B3] mb-1"><img width="20" height="20" src="https://img.icons8.com/cotton/20/gender.png" alt="gender">Gender: Male</p>
+                <p class="flex gap-1 font-normal text-[#131313B3] mb-1"><img width="24" height="24" src="https://img.icons8.com/ios-glyphs/24/average-2.png" alt="average-2">Price : 950$</p>
+                <p class="flex gap-1 font-normal text-[#131313B3] mb-1"><img width="25" height="25" src="https://img.icons8.com/external-outline-wichaiwi/25/external-vaccination-reopening-country-outline-wichaiwi.png" alt="external-vaccination-reopening-country-outline-wichaiwi">vaccinated_status : Fully</p>
+
+                <br><br>
+                <hr>
+                <br>
+                
+                <h3 class="font-bold">Detail Information</h3>
+                <p class="flex gap-1 font-normal text-[#131313B3] mb-1">This playful male Bengal cat, born on November 10, 2022, is full of energy and loves to climb and engage with toys. Fully vaccinated and priced at $950, he's ideal for active households looking for a curious and adventurous feline friend.</p>
+
+                <br><br>
+
+                <div class="grid grid-cols-3 gap-2 pt-3 border-t-2">
+                    <button id="6-cancel" class="btn px-0 text-[#0E7A81]">Cancel</button>
+                </div>
+            </div>
+        </div>
+    `
+}
 
 // {
 //     "status": true,
@@ -59,7 +96,7 @@ const loadDetails = () => {
 
 const removeActiveClass = () => {
     const buttons = document.getElementsByClassName("catagories-btn");
-    console.log(buttons);
+    // console.log(buttons);
     for (let btn of buttons) {
         btn.classList.remove("active");
     }
@@ -119,7 +156,7 @@ breed}</p>
               <div class="grid grid-cols-3 gap-2 pt-3 border-t-2">
                   <button id="3-like" class="btn px-0"><img width="25" height="25" src="https://img.icons8.com/material-outlined/25/facebook-like.png" alt="facebook-like"></button>
                   <button id="3-adopt" class="btn px-0 text-[#0E7A81]">Adopt</button>
-                  <button id="3-details" class="btn px-0 text-[#0E7A81]">Details</button>
+                  <button onclick="loadDetails(${pet.petId})" id="3-details" class="btn px-0 text-[#0E7A81]">Details</button>
               </div>
           </div>
         </div>
