@@ -1,0 +1,19 @@
+.active {
+  /* border: 2px solid #0E7A81;
+  border-radius: 120px;
+  background-color: #0E7A8120;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 24px;
+  height: 120px; */
+  border: 2px solid #0E7A81;
+  border-radius: 120px;
+  color: tomato;
+  /* background-color: blue; */
+ 
+}
+
+/* border-2 border-secondaryColor rounded-full bg-userBorderColor w-full flex items-center justify-center gap-2 lg:px-16 py-4 h-20 border-2 border-grey-300 font-extrabold text-xl */

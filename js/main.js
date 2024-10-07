@@ -23,8 +23,46 @@ const loadCategoryPets = (category) => {
     // Fetch the Data
     fetch(`https://openapi.programming-hero.com/api/peddy/category/${category}`)
         .then(response => response.json())
-        .then(data => displayAllPets(data.data))
+        .then(data => {
+            // Remove Active Classes from Other Buttons
+            removeActiveClass();
+            // Active The Selected ID Button
+            const activeButton = document.getElementById(`btn-${category}`);
+            activeButton.classList.add("active")
+            displayAllPets(data.data);
+        })
         .catch((error => console.log(error)))
+}
+
+const loadDetails = () => {
+
+}
+
+
+// {
+//     "status": true,
+//     "message": "successfully fetched pet data using id 1",
+//     "petData": {
+//     "petId": 1,
+//     "breed": "Golden Retriever",
+//     "category": "Dog",
+//     "date_of_birth": "2023-01-15",
+//     "price": 1200,
+//     "image": "https://i.ibb.co.com/p0w744T/pet-1.jpg",
+//     "gender": "Male",
+//     "pet_details": "This friendly male Golden Retriever is energetic and loyal, making him a perfect companion for families. Born on January 15, 2023, he enjoys playing outdoors and is especially great with children. Fully vaccinated, he's ready to join your family and bring endless joy. Priced at $1200, he offers love, loyalty, and a lively spirit for those seeking a playful yet gentle dog.",
+//     "vaccinated_status": "Fully",
+//     "pet_name": "Sunny"
+//     }
+//     }
+
+
+const removeActiveClass = () => {
+    const buttons = document.getElementsByClassName("catagories-btn");
+    console.log(buttons);
+    for (let btn of buttons) {
+        btn.classList.remove("active");
+    }
 }
 
 
@@ -63,7 +101,7 @@ const displayAllPets = (pets) => {
     pets.forEach((pet) => {
         // console.log(pet);
         const card = document.createElement("div");
-        card.classList = "card card-compact p-3 border-2 border-solid border-red-500";
+        card.classList = "card card-compact p-3 border-2 border-solid border-gray-300";
         card.innerHTML = `
         <figure>
             <img class="rounded-xl object-cover w-full h-full" src=${pet.image} alt="Image of a pet" />
@@ -99,7 +137,7 @@ const displayCatagories = (categories) => {
     const buttonContainer = document.createElement("div");
     buttonContainer.classList = "flex lg:justify-between lg:items-center mb-8 gap-2 md:gap-4";
     buttonContainer.innerHTML = `
-    <button onclick="loadCategoryPets('${item.category}')" class="catagories-btn py-4 h-20 rounded-xl bg-primaryColor border-2 border-grey-300 font-extrabold text-xl hover:border-2 hover:border-secondaryColor hover:rounded-full hover:bg-userBorderColor w-full flex items-center justify-center gap-2 lg:px-16" id=${item.id}><img class="object-cover h-full" src="${item.category_icon}" alt="">${item.category}</button>
+    <button id="btn-${item.category}" onclick="loadCategoryPets('${item.category}')" class="catagories-btn py-4 h-20 rounded-xl bg-primaryColor border-2 border-grey-300 font-extrabold text-xl hover:border-2 hover:border-secondaryColor hover:rounded-full hover:bg-userBorderColor w-full flex items-center justify-center gap-2 lg:px-16" id=${item.id}><img class="object-cover h-full" src="${item.category_icon}" alt="">${item.category}</button>
     `;
     // Add Button to Container
     categoryContainer.append(buttonContainer);
