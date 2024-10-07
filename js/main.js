@@ -100,23 +100,6 @@ breed}</p>
 // : 
 // 1
 
-// Create Display Catagories
-// const displayCatagories = (categories) => {
-//     const categoryContainer = document.getElementById("categories-btn");
-//     categories.forEach((item) => {
-//     const buttonContainer = document.createElement("div");
-//     buttonContainer.classList = "lg:flex lg:justify-between lg:items-center mb-8 grid grid-cols-2 gap-4";
-//     buttonContainer.innerHTML = `
-//     <button class="btn btn-outline text-xl px-12" id=${id}><img class="object-cover h-full py-2" src="${category_icon}" alt="">${category}</button>
-//     `;
-//     // Add Button to Container
-//     categoryContainer.append(buttonContainer);
-//     });
-
-//     // Create a Button
-
-    
-// }
 
 
 
