@@ -42,6 +42,24 @@ const loadCategoryPets = (category) => {
 const displayAllPets = (pets) => {
     const petsCardContainer = document.getElementById("pets-cards-container");
     petsCardContainer.innerHTML = "";
+
+    if (pets.length === 0) {
+        petsCardContainer.classList.remove("grid")
+        petsCardContainer.innerHTML =`
+        <div class="text-center p-8 border-2">
+        <div class="flex justify-center">
+            <img class="rounded-xl w-20 py-8" src="images/error.webp" alt="Shoes">
+        </div>
+        <h2 class="font-black text-4xl mb-4">No Information available</h2>
+        <p>Currently, there is no information available in the Bird category. We are working to update our listings and provide you with the latest details. Please check back soon for new additions and updates!</p>
+        </div>
+        `;
+        return;
+    }
+    else {
+        petsCardContainer.classList.add("grid");
+    }
+
     pets.forEach((pet) => {
         // console.log(pet);
         const card = document.createElement("div");
