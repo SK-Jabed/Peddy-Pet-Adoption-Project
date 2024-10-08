@@ -28,8 +28,9 @@ const loadCategoryPets = (category) => {
             removeActiveClass();
             // Active The Selected ID Button
             const activeButton = document.getElementById(`btn-${category}`);
-            activeButton.classList.add("active")
-            displayAllPets(data.data);
+            activeButton.classList.add("active");
+
+            displayAllPets(data.data);           
         })
         .catch((error => console.log(error)))
 }
@@ -40,6 +41,19 @@ const loadDetails = (petId) => {
         .then(response => response.json())
         .then(data => displayDetails(data.petData))
         .catch((error => console.log(error)))
+}
+
+
+const handleLoader = () => {
+
+    // const loader = document.getElementById("loader");
+    // loader.classList.remove("hidden");
+
+    // document.getElementById("loader").style.display = "block";
+
+    setTimeout(() => {
+        loadCategoryPets(category);
+    }, 2000);
 }
 
 
@@ -162,8 +176,11 @@ const removeActiveClass = () => {
 // "pet_name": "Sunny"
 
 const displayAllPets = (pets) => {
+
+
     const petsCardContainer = document.getElementById("pets-cards-container");
     petsCardContainer.innerHTML = "";
+
 
     if (pets.length === 0) {
         petsCardContainer.classList.remove("grid")
@@ -230,7 +247,7 @@ const displayCatagories = (categories) => {
     const buttonContainer = document.createElement("div");
     buttonContainer.classList = "flex lg:justify-between lg:items-center mb-8 gap-2 md:gap-4";
     buttonContainer.innerHTML = `
-    <button id="btn-${item.category}" onclick="loadCategoryPets('${item.category}'), handleLoader()" class="catagories-btn py-4 h-20 rounded-xl bg-primaryColor border-2 border-grey-300 font-extrabold text-xl hover:border-2 hover:border-secondaryColor hover:rounded-full hover:bg-userBorderColor w-full flex items-center justify-center gap-2 lg:px-16" id=${item.id}><img class="object-cover h-full" src="${item.category_icon}" alt="">${item.category}</button>
+    <button id="btn-${item.category}" onclick="handleLoader(); loadCategoryPets('${item.category}')" class="catagories-btn py-4 h-20 rounded-xl bg-primaryColor border-2 border-grey-300 font-extrabold text-xl hover:border-2 hover:border-secondaryColor hover:rounded-full hover:bg-userBorderColor w-full flex items-center justify-center gap-2 lg:px-16" id=${item.id}><img class="object-cover h-full" src="${item.category_icon}" alt="">${item.category}</button>
     `;
     // Add Button to Container
     categoryContainer.append(buttonContainer);
