@@ -80,6 +80,7 @@ const displayDetails = (petDetails) => {
 const displayAdoptModal = (petAdopt) => {
     // console.log(petDetails);
     const adoptContainer = document.getElementById("adopt-modal-content");
+    const adoptButton = document.getElementById('${pet.pet_name}');
     document.getElementById("adoptModal").showModal();
 
     adoptContainer.innerHTML = `
@@ -87,10 +88,38 @@ const displayAdoptModal = (petAdopt) => {
               <img width="48" height="48" src="https://img.icons8.com/emoji/48/confetti-ball.png" alt="confetti-ball">
               <h2 class="text-4xl font-black">Congratulation</h2>
               <p>Adoption Process is Start For your Pet</p>
-              <h1 id="count" class="text-6xl font-black">0</h1>
+           
+              <h2 id="countdownText" class="text-6xl font-black">3</h2>
           </div>
-    `
+    `;
+
+    let countdown = 3;
+
+  // Update the countdown every second
+  const countdownInterval = setInterval(() => {
+    countdown -= 1;
+    countdownText.textContent = `${countdown}`;
+
+    // If countdown reaches 0, clear the interval
+    if (countdown <= 0) {
+      clearInterval(countdownInterval);
+    }
+  }, 1000);
+
+  // Automatically close the modal after 3 seconds
+  
+
+  
+
+  // Set a timeout to close the modal after 3 seconds
+  setTimeout(() => {
+    document.getElementById("closeBtn").click();
+  }, 3000);
+  
+  adoptButton.innerText = "Adopted";
 }
+
+
 
 
 
@@ -165,24 +194,33 @@ const displayAllPets = (pets) => {
             <div class="mt-4">
               <h2 class="text-xl font-bold mb-2">${pet.pet_name
 }</h2>
-              <p class="flex gap-1 font-normal text-[#131313B3] mb-1"><img width="24" height="24" src="https://img.icons8.com/ios-glyphs/24/bulldog.png" alt="bulldog">Breed: ${pet.
-breed}</p>
-              <p class="flex gap-1 font-normal text-[#131313B3] mb-1"><img width="20" height="20" src="https://img.icons8.com/ios/20/birth-date.png" alt="birth-date">Birth: ${pet.date_of_birth}</p>
-              <p class="flex gap-1 font-normal text-[#131313B3] mb-1"><img width="20" height="20" src="https://img.icons8.com/cotton/20/gender.png" alt="gender">Gender: ${pet.gender}</p>
-              <p class="flex gap-1 font-normal text-[#131313B3] mb-1"><img width="24" height="24" src="https://img.icons8.com/ios-glyphs/24/average-2.png" alt="average-2">Price : ${pet.price}</p>
+              <p class="flex gap-1 font-normal text-[#131313B3] mb-1"><img width="24" height="24" src="https://img.icons8.com/ios-glyphs/24/bulldog.png" alt="bulldog">Breed: ${pet?.breed ? pet?.breed : "Breed is N/A"}</p>
+              <p class="flex gap-1 font-normal text-[#131313B3] mb-1"><img width="20" height="20" src="https://img.icons8.com/ios/20/birth-date.png" alt="birth-date">Birth: ${pet?.date_of_birth ? pet?.date_of_birth : "Birth is N/A"}</p>
+              <p class="flex gap-1 font-normal text-[#131313B3] mb-1"><img width="20" height="20" src="https://img.icons8.com/cotton/20/gender.png" alt="gender">Gender: ${pet?.gender ? pet?.gender : "Gender is N/A"}</p>
+              <p class="flex gap-1 font-normal text-[#131313B3] mb-1"><img width="24" height="24" src="https://img.icons8.com/ios-glyphs/24/average-2.png" alt="average-2">Price : ${pet?.price ? pet?.price : "Price is N/A"}</p>
   
               <div class="grid grid-cols-3 gap-2 pt-3 border-t-2">
-                  <button id="3-like" class="btn px-0"><img width="25" height="25" src="https://img.icons8.com/material-outlined/25/facebook-like.png" alt="facebook-like"></button>
-                  <button onclick="displayAdoptModal('petAdopt')" id="3-adopt" class="btn px-0 text-[#0E7A81]">Adopt</button>
-                  <button onclick="loadDetails(${pet.petId})" id="3-details" class="btn px-0 text-[#0E7A81]">Details</button>
+                  <button onclick="displayLikedPetImage('${pet.image}')" id="like-btn" class="btn px-0"><img width="25" height="25" src="https://img.icons8.com/material-outlined/25/facebook-like.png" alt="facebook-like"></button>
+                  <button onclick="displayAdoptModal('petAdopt')" id="${pet.pet_name}" class="btn px-0 text-[#0E7A81]">Adopt</button>
+                  <button onclick="loadDetails(${pet.petId})" id="details-btn" class="btn px-0 text-[#0E7A81]">Details</button>
               </div>
           </div>
         </div>
         `;
         petsCardContainer.append(card);
     });
-}
+};
 
+
+const displayLikedPetImage = (url) => {
+    const likedPetContainer = document.getElementById("liked-pet-container");
+    const div = document.createElement("div");
+    // div.classList.add("")
+    div.innerHTML = `
+     <img class="rounded-lg overflow-hidden h-full w-full" src=${url} alt="">
+    `;
+    likedPetContainer.appendChild(div);
+}
 
 
 // Create Display Catagories
@@ -198,9 +236,10 @@ const displayCatagories = (categories) => {
     categoryContainer.append(buttonContainer);
     });
 
-    // Create a Button
-   
-}
+    // Create a Button 
+};
+
+
 
 
 // let button = document.getElementById("btn-${item.category}");

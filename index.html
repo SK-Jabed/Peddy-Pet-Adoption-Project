@@ -8,10 +8,10 @@
     <!-- Link: External CSS -->
     <link rel="stylesheet" href="./styles/style.css">
 
-    <!-- Link:Favicon Added -->
+    <!-- Link: Favicon Added -->
     <link rel="shortcut icon" href="./images/logo.webp" type="image/x-icon">
 
-    <!-- Font: Lato and Inter Font Imported -->
+    <!-- Font: Lato Font Imported -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
@@ -144,7 +144,7 @@
 
               </div>
               <div class="p-3 border-2 border-solid border-gray-300 rounded-xl col-span-1">
-                <div id="pet-liked-container" class="grid grid-cols-1 lg:grid-cols-2">
+                <div id="liked-pet-container" class="flex flex-col lg:grid lg:grid-cols-2 gap-2">
 
                 </div>
               </div>
@@ -189,7 +189,7 @@
             <form method="dialog">
               <!-- if there is a button in form, it will close the modal -->
                <div class="">
-                <button class="modal-btn px-28 py-4 font-bold text-xl bg-[#0E7A8120] rounded-xl w-full">Cancel</button>
+                <button id="closeBtn" class="modal-btn hidden px-28 py-4 font-bold text-xl bg-[#0E7A8120] rounded-xl w-full">Cancel</button>
                </div>
               
             </form>
