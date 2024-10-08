@@ -241,12 +241,5 @@ const displayCatagories = (categories) => {
 
 
 
-
-// let button = document.getElementById("btn-${item.category}");
-// button.onclick = () => {
-//     console.log("First arrow function!");
-//   };
-
-
 loadCatagories();
 loadAllPets();
