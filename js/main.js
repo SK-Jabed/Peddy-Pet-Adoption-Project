@@ -225,46 +225,53 @@ const displayDetails = (petDetails) => {
 }
 
 
-const displayAdoptModal = (petAdopt) => {
-    // console.log(petDetails);
+
+const displayAdoptModal = (petAdopt, petId) => {
     const adoptContainer = document.getElementById("adopt-modal-content");
     
+    // Show the adoption modal
     document.getElementById("adoptModal").showModal();
 
+    // Display countdown modal content
     adoptContainer.innerHTML = `
-     <div id="adopt-popup" class="bg-white rounded-lg flex flex-col justify-center items-center gap-2">
-              <img width="48" height="48" src="https://img.icons8.com/emoji/48/confetti-ball.png" alt="confetti-ball">
-              <h2 class="text-4xl font-black">Congratulation</h2>
-              <p>Adoption Process is Start For your Pet</p>         
-              <h2 id="countdownText" class="text-6xl font-black">3</h2>
-          </div>
+    <div id="adopt-popup" class="bg-white rounded-lg flex flex-col justify-center items-center gap-2">
+        <img width="48" height="48" src="https://img.icons8.com/emoji/48/confetti-ball.png" alt="confetti-ball">
+        <h2 class="text-4xl font-black">Congratulation</h2>
+        <p>Adoption Process is Start For your Pet</p>         
+        <h2 id="countdownText" class="text-6xl font-black">3</h2>
+    </div>
     `;
 
     let countdown = 3;
 
-  // Update the countdown every second
-  const countdownInterval = setInterval(() => {
-    countdown -= 1;
-    countdownText.textContent = `${countdown}`;
+    // Get the button clicked using petId
+    const adoptButton = document.getElementById(`${petId}`);
 
-    // If countdown reaches 0, clear the interval
-    if (countdown <= 0) {
-      clearInterval(countdownInterval);
-    }
-  }, 1000);
+    // Update the countdown every second
+    const countdownInterval = setInterval(() => {
+        countdown -= 1;
+        const countdownText = document.getElementById('countdownText');
+        countdownText.textContent = `${countdown}`;
 
-  // Automatically close the modal after 3 seconds
-  
+        // If countdown reaches 0, clear the interval
+        if (countdown <= 0) {
+            clearInterval(countdownInterval);
+            // Close the modal after countdown
+            document.getElementById("adoptModal").close();
 
-  // Set a timeout to close the modal after 3 seconds
-  setTimeout(() => {
-    document.getElementById("closeBtn").click();
-  }, 3000);
-  
-  const adoptButton = document.getElementById("${pet.petId}")
-  console.log(adoptButton);
-  adoptButton.innerText = "Adopted";
+            // Change the button text to "Adopted" and disable it
+            adoptButton.innerText = "Adopted";
+            adoptButton.disabled = true; // Disable the button
+            adoptButton.classList.add("adopted-button"); // Optionally, add a class for styling
+        }
+    }, 1000);
+
+    // Automatically close the modal after 3 seconds (as a fallback)
+    setTimeout(() => {
+        document.getElementById("adoptModal").close();
+    }, 3000);
 }
+
 
 
 
@@ -320,7 +327,7 @@ const displayAllPets = (pets) => {
   
               <div class="grid grid-cols-3 gap-2 pt-3 border-t-2">
                   <button onclick="displayLikedPetImage('${pet.image}')" id="like-btn" class="btn px-0"><img width="25" height="25" src="https://img.icons8.com/material-outlined/25/facebook-like.png" alt="facebook-like"></button>
-                  <button onclick="displayAdoptModal('petAdopt')" id="${pet.petId}" class="btn adopt-btn px-0 text-[#0E7A81]">Adopt</button>
+                  <button onclick="displayAdoptModal('petAdopt', ${pet.petId})" id="${pet.petId}" class="btn adopt-btn px-0 text-[#0E7A81]">Adopt</button>
                   <button onclick="loadDetails(${pet.petId})" id="details-btn" class="btn px-0 text-[#0E7A81]">Details</button>
               </div>
           </div>
