@@ -3,13 +3,13 @@ let currentPets = []; // Global variable to store current pets
 
 
 const showLoader = () => {
-    const loader = document.getElementById('loader');
-    loader.classList.remove('hidden'); // Show the loader
+    const loader = document.getElementById("loader");
+    loader.classList.remove("hidden"); // Show the loader
 };
 
 const hideLoader = () => {
-    const loader = document.getElementById('loader');
-    loader.classList.add('hidden'); // Hide the loader
+    const loader = document.getElementById("loader");
+    loader.classList.add("hidden"); // Hide the loader
 };
 
 
@@ -26,9 +26,7 @@ const loadCatagories = () => {
         .catch((error => console.log(error)))
 }
 
-// const loadAllPets = () => {
-    
-//     // Fetch the Data
+// const loadAllPets = () => {   
 //     fetch(`https://openapi.programming-hero.com/api/peddy/pets`)
 //         .then(response => response.json())
 //         .then(data => displayAllPets(data.pets))
@@ -155,8 +153,6 @@ const loadCategoryPets = (category) => {
 
 
 
-
-
 const loadDetails = (petId) => {
     // console.log(petId);
     fetch(`https://openapi.programming-hero.com/api/peddy/pet/${petId}`)
@@ -164,7 +160,6 @@ const loadDetails = (petId) => {
         .then(data => displayDetails(data.petData))
         .catch((error => console.log(error)))
 }
-
 
 
 // Function to sort pets by price in descending order
@@ -201,37 +196,29 @@ const sortPetsByPrice = () => {
 
 
 
-
-
-
 const displayDetails = (petDetails) => {
     // console.log(petDetails);
     const detailsContainer = document.getElementById("modal-content");
     document.getElementById("detailsModal").showModal();
 
     detailsContainer.innerHTML = `
-    <div class="w-8/12 h-4/5 bg-white rounded-lg overflow-auto p-8">
-            <img class="rounded-xl w-full" src="https://i.ibb.co.com/PFbWMGk/pet-6.jpg" alt="Shoes">
-            <div class="mt-4">
-                <h2 class="text-xl font-bold mb-2">Leo</h2>
-                <p class="flex gap-1 font-normal text-[#131313B3] mb-1"><img width="24" height="24" src="https://img.icons8.com/ios-glyphs/24/bulldog.png" alt="bulldog">Breed: Bengal</p>
-                <p class="flex gap-1 font-normal text-[#131313B3] mb-1"><img width="20" height="20" src="https://img.icons8.com/ios/20/birth-date.png" alt="birth-date">Birth: unknown</p>
-                <p class="flex gap-1 font-normal text-[#131313B3] mb-1"><img width="20" height="20" src="https://img.icons8.com/cotton/20/gender.png" alt="gender">Gender: Male</p>
-                <p class="flex gap-1 font-normal text-[#131313B3] mb-1"><img width="24" height="24" src="https://img.icons8.com/ios-glyphs/24/average-2.png" alt="average-2">Price : 950$</p>
-                <p class="flex gap-1 font-normal text-[#131313B3] mb-1"><img width="25" height="25" src="https://img.icons8.com/external-outline-wichaiwi/25/external-vaccination-reopening-country-outline-wichaiwi.png" alt="external-vaccination-reopening-country-outline-wichaiwi">vaccinated_status : Fully</p>
-
-                <br><br>
-                <hr>
-                <br>
+    <div class="bg-white rounded-lg overflow-auto grid grid-cols-3">
+            <img class="rounded-lg w-full col-span-3" src="${petDetails.image}" alt="Pet Image">
+            <div class="mt-4 col-span-3">
+                <h2 class="text-xl font-semibold mb-2">${petDetails.pet_name}</h2>
+                <p class="flex gap-1 font-normal text-[#131313B3] mb-1"><img width="24" height="24" src="https://img.icons8.com/ios-glyphs/24/bulldog.png" alt="bulldog">Breed: ${petDetails.breed}</p>
                 
-                <h3 class="font-bold">Detail Information</h3>
-                <p class="flex gap-1 font-normal text-[#131313B3] mb-1">This playful male Bengal cat, born on November 10, 2022, is full of energy and loves to climb and engage with toys. Fully vaccinated and priced at $950, he's ideal for active households looking for a curious and adventurous feline friend.</p>
-
-                <br><br>
-
-                <div class="grid grid-cols-3 gap-2 pt-3 border-t-2">
-                    <button id="6-cancel" class="btn px-0 text-[#0E7A81]">Cancel</button>
+                <p class="flex gap-1 font-normal text-[#131313B3] mb-1"><img width="20" height="20" src="https://img.icons8.com/cotton/20/gender.png" alt="gender">Gender: ${petDetails.gender}</p>
+                
+                <p class="flex gap-1 font-normal text-[#131313B3] mb-1"><img width="25" height="25" src="https://img.icons8.com/external-outline-wichaiwi/25/external-vaccination-reopening-country-outline-wichaiwi.png" alt="external-vaccination-reopening-country-outline-wichaiwi">Vaccinated status: ${petDetails.vaccinated_status}</p>
+                <div class="">
+                <p class="flex gap-1 font-normal text-[#131313B3] mb-1"><img width="20" height="20" src="https://img.icons8.com/ios/20/birth-date.png" alt="birth-date">Birth: ${petDetails.date_of_birth}</p>
+                <p class="flex gap-1 font-normal text-[#131313B3] mb-4"><img width="24" height="24" src="https://img.icons8.com/ios-glyphs/24/average-2.png" alt="average-2">Price: ${petDetails.price}</p>
                 </div>
+                <hr>              
+                <h2 class="font-bold mt-2">Details Information</h2>
+                <p class="flex gap-1 font-normal text-[#131313B3] mt-2">${petDetails.pet_details}</p>
+
             </div>
         </div>
     `
@@ -245,11 +232,10 @@ const displayAdoptModal = (petAdopt) => {
     document.getElementById("adoptModal").showModal();
 
     adoptContainer.innerHTML = `
-     <div id="adopt-popup" class="w-96 h-72 bg-white rounded-lg overflow-auto p-8 flex flex-col justify-center items-center gap-4">
+     <div id="adopt-popup" class="bg-white rounded-lg flex flex-col justify-center items-center gap-2">
               <img width="48" height="48" src="https://img.icons8.com/emoji/48/confetti-ball.png" alt="confetti-ball">
               <h2 class="text-4xl font-black">Congratulation</h2>
-              <p>Adoption Process is Start For your Pet</p>
-           
+              <p>Adoption Process is Start For your Pet</p>         
               <h2 id="countdownText" class="text-6xl font-black">3</h2>
           </div>
     `;
@@ -270,8 +256,6 @@ const displayAdoptModal = (petAdopt) => {
   // Automatically close the modal after 3 seconds
   
 
-  
-
   // Set a timeout to close the modal after 3 seconds
   setTimeout(() => {
     document.getElementById("closeBtn").click();
@@ -282,26 +266,6 @@ const displayAdoptModal = (petAdopt) => {
   adoptButton.innerText = "Adopted";
 }
 
-
-
-
-
-// {
-//     "status": true,
-//     "message": "successfully fetched pet data using id 1",
-//     "petData": {
-//     "petId": 1,
-//     "breed": "Golden Retriever",
-//     "category": "Dog",
-//     "date_of_birth": "2023-01-15",
-//     "price": 1200,
-//     "image": "https://i.ibb.co.com/p0w744T/pet-1.jpg",
-//     "gender": "Male",
-//     "pet_details": "This friendly male Golden Retriever is energetic and loyal, making him a perfect companion for families. Born on January 15, 2023, he enjoys playing outdoors and is especially great with children. Fully vaccinated, he's ready to join your family and bring endless joy. Priced at $1200, he offers love, loyalty, and a lively spirit for those seeking a playful yet gentle dog.",
-//     "vaccinated_status": "Fully",
-//     "pet_name": "Sunny"
-//     }
-//     }
 
 
 const removeActiveClass = () => {
@@ -348,8 +312,7 @@ const displayAllPets = (pets) => {
         </figure>
         <div class="">
             <div class="mt-4">
-              <h2 class="text-xl font-bold mb-2">${pet.pet_name
-}</h2>
+              <h2 class="text-xl font-bold mb-2">${pet.pet_name}</h2>
               <p class="flex gap-1 font-normal text-[#131313B3] mb-1"><img width="24" height="24" src="https://img.icons8.com/ios-glyphs/24/bulldog.png" alt="bulldog">Breed: ${pet?.breed ? pet?.breed : "Breed is N/A"}</p>
               <p class="flex gap-1 font-normal text-[#131313B3] mb-1"><img width="20" height="20" src="https://img.icons8.com/ios/20/birth-date.png" alt="birth-date">Birth: ${pet?.date_of_birth ? pet?.date_of_birth : "Birth is N/A"}</p>
               <p class="flex gap-1 font-normal text-[#131313B3] mb-1"><img width="20" height="20" src="https://img.icons8.com/cotton/20/gender.png" alt="gender">Gender: ${pet?.gender ? pet?.gender : "Gender is N/A"}</p>
