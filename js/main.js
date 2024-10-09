@@ -1,3 +1,19 @@
+
+let currentPets = []; // Global variable to store current pets
+
+
+const showLoader = () => {
+    const loader = document.getElementById('loader');
+    loader.classList.remove('hidden'); // Show the loader
+};
+
+const hideLoader = () => {
+    const loader = document.getElementById('loader');
+    loader.classList.add('hidden'); // Hide the loader
+};
+
+
+
 // Fetch, Load and Show Catagories
 
 // Create Load Catagories 
@@ -10,30 +26,136 @@ const loadCatagories = () => {
         .catch((error => console.log(error)))
 }
 
-const loadAllPets = () => {
+// const loadAllPets = () => {
     
+//     // Fetch the Data
+//     fetch(`https://openapi.programming-hero.com/api/peddy/pets`)
+//         .then(response => response.json())
+//         .then(data => displayAllPets(data.pets))
+//         .catch((error => console.log(error)))
+// }
+
+
+// Fetch all pets initially
+// const loadAllPets = () => {
+//     fetch(`https://openapi.programming-hero.com/api/peddy/pets`)
+//         .then(response => response.json())
+//         .then(data => {
+//             currentPets = data.pets; // Store the fetched pets
+//             displayAllPets(currentPets);
+//         })
+//         .catch((error => console.log(error)))
+// };
+
+
+
+const loadAllPets = () => {
+    // Show loader before fetching data
+    showLoader();
+
     // Fetch the Data
+    setTimeout(() => {
     fetch(`https://openapi.programming-hero.com/api/peddy/pets`)
         .then(response => response.json())
-        .then(data => displayAllPets(data.pets))
-        .catch((error => console.log(error)))
-}
+        .then(data => {
+            // After fetching data, hide the loader and display pets
+            hideLoader();
+            currentPets = data.pets; // Hide the loader after data is fetched
+            displayAllPets(currentPets); // Display pets after hiding the loader
+        })
+        .catch((error => {
+            hideLoader(); // Ensure loader is hidden even on error
+            console.log(error);
+        }));
 
+    }, 2000);
+};
+
+
+
+// const loadCategoryPets = (category) => {
+//     // Fetch the Data
+//     fetch(`https://openapi.programming-hero.com/api/peddy/category/${category}`)
+//         .then(response => response.json())
+//         .then(data => {
+//             // Remove Active Classes from Other Buttons
+//             removeActiveClass();
+//             // Active The Selected ID Button
+//             const activeButton = document.getElementById(`btn-${category}`);
+//             activeButton.classList.add("active");
+
+//             displayAllPets(data.data);           
+//         })
+//         .catch((error => console.log(error)))
+// }
+
+
+// Fetch pets by category and store them
 const loadCategoryPets = (category) => {
-    // Fetch the Data
     fetch(`https://openapi.programming-hero.com/api/peddy/category/${category}`)
         .then(response => response.json())
         .then(data => {
-            // Remove Active Classes from Other Buttons
+            currentPets = data.data; // Store the pets of the selected category
             removeActiveClass();
-            // Active The Selected ID Button
             const activeButton = document.getElementById(`btn-${category}`);
             activeButton.classList.add("active");
 
-            displayAllPets(data.data);           
+            displayAllPets(currentPets);
         })
         .catch((error => console.log(error)))
-}
+};
+
+
+// const loadCategoryPets = (category) => {
+//     showLoader();
+    
+//     setTimeout(() => {
+//         fetch(`https://openapi.programming-hero.com/api/peddy/category/${category}`)
+//             .then(response => response.json())
+//             .then(data => {
+//                 currentPets = data.data; // Store the pets of the selected category
+//                 removeActiveClass();
+//                 const activeButton = document.getElementById(`btn-${category}`);
+//                 activeButton.classList.add("active");
+
+//                 hideLoader(); // Hide the loader after fetching the pets
+//                 displayAllPets(currentPets); // Display pets after hiding the loader
+//             })
+//             .catch((error => {
+//                 hideLoader(); // Ensure the loader is hidden even on error
+//                 console.log(error);
+//             }));
+//     }, 4000); // 2-second delay
+// }
+
+
+
+// const loadCategoryPets = (category) => {
+//     showLoader(); // Show loader
+
+//     setTimeout(() => {
+//         fetch(`https://openapi.programming-hero.com/api/peddy/category/${category}`)
+//             .then(response => response.json())
+//             .then(data => {
+//                  // Store the pets of the selected category
+//                 removeActiveClass();
+//                 const activeButton = document.getElementById(`btn-${category}`);
+//                 activeButton.classList.add("active");
+
+//                 hideLoader();
+//                 currentPets = data.data; // Hide the loader after fetching the pets
+//                 displayAllPets(currentPets); // Display pets after hiding the loader
+//             })
+//             .catch((error => {
+//                 hideLoader(); // Ensure the loader is hidden even on error
+//                 console.log(error);
+//             }));
+//     }, 2000); // You can adjust this delay if needed
+// };
+
+
+
+
 
 const loadDetails = (petId) => {
     // console.log(petId);
@@ -44,17 +166,42 @@ const loadDetails = (petId) => {
 }
 
 
-const handleLoader = () => {
 
-    // const loader = document.getElementById("loader");
-    // loader.classList.remove("hidden");
+// Function to sort pets by price in descending order
+const sortPetsByPrice = () => {
+    // Sort the currentPets array by price (assuming price is numeric)
+    currentPets.sort((a, b) => b.price - a.price);
+    
+    // Redisplay the sorted pets
+    displayAllPets(currentPets);
+};
 
-    // document.getElementById("loader").style.display = "block";
 
-    setTimeout(() => {
-        loadCategoryPets(category);
-    }, 2000);
-}
+
+// const sortPetsByPrice = () => {
+//     showLoader();
+    
+//     setTimeout(() => {
+//         currentPets.sort((a, b) => b.price - a.price); // Sort by price in descending order
+//         hideLoader(); // Hide the loader
+//         displayAllPets(currentPets); // Display the sorted pets
+//     }, 2000); // 2-second delay
+// }
+
+
+// const sortPetsByPrice = () => {
+//     showLoader(); // Show loader
+
+//     setTimeout(() => {
+//         currentPets.sort((a, b) => b.price - a.price); // Sort by price in descending order
+//         hideLoader(); // Hide the loader
+//         displayAllPets(currentPets); // Display the sorted pets
+//     }, 2000); // Adjust delay if necessary
+// };
+
+
+
+
 
 
 const displayDetails = (petDetails) => {
@@ -94,7 +241,7 @@ const displayDetails = (petDetails) => {
 const displayAdoptModal = (petAdopt) => {
     // console.log(petDetails);
     const adoptContainer = document.getElementById("adopt-modal-content");
-    const adoptButton = document.getElementById('${pet.pet_name}');
+    
     document.getElementById("adoptModal").showModal();
 
     adoptContainer.innerHTML = `
@@ -130,6 +277,8 @@ const displayAdoptModal = (petAdopt) => {
     document.getElementById("closeBtn").click();
   }, 3000);
   
+  const adoptButton = document.getElementById("${pet.petId}")
+  console.log(adoptButton);
   adoptButton.innerText = "Adopted";
 }
 
@@ -218,7 +367,7 @@ const displayAllPets = (pets) => {
   
               <div class="grid grid-cols-3 gap-2 pt-3 border-t-2">
                   <button onclick="displayLikedPetImage('${pet.image}')" id="like-btn" class="btn px-0"><img width="25" height="25" src="https://img.icons8.com/material-outlined/25/facebook-like.png" alt="facebook-like"></button>
-                  <button onclick="displayAdoptModal('petAdopt')" id="${pet.pet_name}" class="btn px-0 text-[#0E7A81]">Adopt</button>
+                  <button onclick="displayAdoptModal('petAdopt')" id="${pet.petId}" class="btn adopt-btn px-0 text-[#0E7A81]">Adopt</button>
                   <button onclick="loadDetails(${pet.petId})" id="details-btn" class="btn px-0 text-[#0E7A81]">Details</button>
               </div>
           </div>
@@ -247,7 +396,7 @@ const displayCatagories = (categories) => {
     const buttonContainer = document.createElement("div");
     buttonContainer.classList = "flex lg:justify-between lg:items-center mb-8 gap-2 md:gap-4";
     buttonContainer.innerHTML = `
-    <button id="btn-${item.category}" onclick="handleLoader(); loadCategoryPets('${item.category}')" class="catagories-btn py-4 h-20 rounded-xl bg-primaryColor border-2 border-grey-300 font-extrabold text-xl hover:border-2 hover:border-secondaryColor hover:rounded-full hover:bg-userBorderColor w-full flex items-center justify-center gap-2 lg:px-16" id=${item.id}><img class="object-cover h-full" src="${item.category_icon}" alt="">${item.category}</button>
+    <button id="btn-${item.category}" onclick="loadCategoryPets('${item.category}')" class="catagories-btn py-4 h-20 rounded-xl bg-primaryColor border-2 border-grey-300 font-extrabold text-xl hover:border-2 hover:border-secondaryColor hover:rounded-full hover:bg-userBorderColor w-full flex items-center justify-center gap-2 lg:px-16"><img class="object-cover h-full" src="${item.category_icon}" alt="">${item.category}</button>
     `;
     // Add Button to Container
     categoryContainer.append(buttonContainer);
