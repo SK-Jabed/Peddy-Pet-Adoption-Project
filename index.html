@@ -3,8 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub Assignment-6</title>
-
+    <title>PEDDY | Pet Adoption Platform</title>
     <!-- Link: External CSS -->
     <link rel="stylesheet" href="./styles/style.css">
 
@@ -33,9 +32,8 @@
               'secondaryColor': '#0E7A81',
               'primaryTextColor': '#131313',
               'secondaryTextColor': '#13131360',
-              'tertiaryTextColor': 'rgba(17, 17, 17, 0.4)',
+              'tertiaryTextColor': '#13131370',
               'userBorderColor': '#0E7A8120',
-              'secondaryBorderColor': 'rgba(17, 17, 17, 0.3)',
               'emailInputColor': '#FFFFFF05',
               'footerInfoColor': '#FFFFFF90',              
               'footerMenuColor': '#FFFFFF60',              
@@ -50,191 +48,182 @@
   </head>
   <body class="font-lato">
     <!-- Header Section Starts Here -->
-    <header>
-    <!-- Navbar section start here -->
-    <nav class="container w-11/12 mx-auto py-10">
-      <div class="navbar-content lg:mx-4">
-        <div class="navbar flex justify-between items-center mx-auto">
-          <div class="navbar-start text-left">
-            <a class="flex items-center gap-2" href="index.html">
-              <img src="./images/logo.webp" alt="Logo">
-              <span class="text-2xl md:text-3xl font-extrabold text-primaryTextColor">Peddy</span>
-            </a>           
-          </div>
-          <div class="navbar-center hidden lg:flex">
-            <ul class="menu-options flex gap-9 px-1 font-medium">
-              <li><a class="text-xl font-bold hover:font-bold transition duration-300 ease-in-out" href="#home">Home</a></li>
-              <li><a class="text-xl text-tertiary-color hover:transition duration-300 ease-in-out hover:font-bold text-black" href="#services">Shop</a></li>
-              <li><a class="text-xl text-tertiary-color hover:transition duration-300 ease-in-out hover:font-bold" href="#contact-us">Contact</a>
-            </ul>
-          </div>
-          <div class="navbar-end flex">
-            <div class="item gap-2 items-center">
-              <a href="#">
-                <i class="fa-regular fa-user p-3 bg-white rounded-full border-2 border-solid border-userBorderColor"></i>
-              </a>
+    <header class="pb-8 md:pb-12 lg:pb-16">
+      <!-- Navbar Section Starts Here -->
+      <nav class="container w-11/12 mx-auto py-4 lg:py-8">
+        <div class="navbar-content">
+          <div class="navbar flex justify-between items-center mx-auto">
+            <div class="navbar-start text-left">
+              <a class="flex items-center gap-2" href="index.html">
+                <img src="./images/logo.webp" alt="Logo">
+                <span class="text-2xl md:text-3xl font-extrabold text-primaryTextColor">Peddy</span>
+              </a>           
             </div>
-            <div class="dropdown lg:hidden relative ml-2">
-              <div tabindex="0" role="button" class="btn p-4 bg-userBorderColor border-2 border-solid rounded-full lg:hidden">
-                <i class="fa-solid fa-bars"></i>
-              </div>
-              <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow absolute right-0">
-                <li><a class="text-xl font-bold hover:font-bold transition duration-300 ease-in-out" href="#home">Home</a></li>
-              <li><a class="text-xl text-tertiary-color hover:transition duration-300 ease-in-out hover:font-bold text-black" href="#">Shop</a></li>
-              <li><a class="text-xl text-tertiary-color hover:transition duration-300 ease-in-out hover:font-bold" href="#">Contact</a>
+            <div class="navbar-center hidden lg:flex items-center mt-4">
+              <ul class="menu-options flex gap-8 font-medium">
+                <li><a class="text-xl text-primaryTextColor hover:font-semibold hover:transition duration-300 ease-in-out" href="#index.html">Home</a></li>
+                <li><a class="text-xl text-primaryTextColor hover:transition duration-300 ease-in-out hover:font-semibold" href="#best-freind">Shop</a></li>
+                <li><a class="text-xl text-primaryTextColor hover:transition duration-300 ease-in-out hover:font-semibold" href="#footer-section">Contact</a>
               </ul>
             </div>
-          </div>
-        </div>       
-      </div>
-    </nav>
-    <!-- Navbar section end here -->
-    <!-- Hero Section Starts Here -->
-    <div class="hero-section mb-10">
-      <div class="container w-11/12 mx-auto px-5 lg:px-20 mt-4">
-        <div class="hero-content mx-3 flex flex-col justify-center">         
-          <div class="hero-description md:w-10/12 mx-auto flex flex-col justify-center">
-            <div class="text-with-emoji flex justify-center">
-              <h2 class="text-center text-xl md:text-2xl lg:text-3xl text-secondaryTextColor font-bold mb-8">
-                Bringing Families Together
-              </h2>
-              <span class="text-3xl">&thinsp;❤️‍🔥</span>
-            </div>           
-            <h1 class="text-center text-3xl md:text-4xl lg:text-6xl font-extrabold text-primaryTextColor mb-6 w-3/4 mx-auto">
-              Your Path to Adoption Starts Here
-            </h1>
-            <p class="text-primaryTextColor text-base font-medium text-center w-3/4 mx-auto">
-              It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.
-            </p>
-            <div class="view-more-btn mx-auto mt-8">
-              <button class="btn sm:w-full bg-secondaryColor border-none"><a class="px-8 py-4 text-primaryColor font-bold" href="#best-freind">View &thinsp;More</a></button>  
+            <div class="navbar-end flex">
+              <div class="item gap-2 items-center">
+                <a href="#index.html">
+                  <i class="fa-regular fa-user p-3 bg-primaryColor rounded-full border-2 border-solid border-userBorderColor hover:bg-userBorderColor"></i>
+                </a>
+              </div>
+              <div class="dropdown lg:hidden relative ml-2">
+                <div tabindex="0" role="button" class="btn p-4 bg-userBorderColor border-2 border-solid rounded-full lg:hidden hover:bg-userBorderColor">
+                  <i class="fa-solid fa-bars"></i>
+                </div>
+                <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow absolute right-0">
+                  <li><a class="text-xl hover:font-bold hover:transition duration-300 hover:ease-in-out" href="#index.html">Home</a></li>
+                  <li><a class="text-xl text-primaryTextColor hover:transition duration-300 ease-in-out hover:font-bold hover:primaryTextColor" href="#best-freind">Shop</a></li>
+                  <li><a class="text-xl text-primaryTextColor hover:transition duration-300 ease-in-out hover:font-bold hover:primaryTextColor" href="#footer-section">Contact</a>
+                </ul>
+              </div>
             </div>
-          </div>
-          <div class="hero-image">
-            <img class="mx-auto mt-6" src="./images/pet.webp" alt="">
+          </div>       
+        </div>
+      </nav>
+      <!-- Navbar Section Ends Here -->
+      <!-- Hero Section Starts Here -->
+      <div class="hero-section">
+        <div class="container mx-auto px-5 lg:mt-4">
+          <div class="hero-content mx-auto flex flex-col">         
+            <div class="hero-description lg:w-10/12">
+              <div class="text-with-emoji flex justify-center">
+                <h2 class="text-center text-xl md:text-2xl lg:text-3xl text-secondaryTextColor font-bold mt-1 md:mt-0 md:mb-8">
+                  Bringing Families Together
+                </h2>
+                <span class="hidden md:block md:text-2xl lg:text-3xl">&thinsp;❤️‍🔥</span>
+                <span class="md:hidden text-2xl">❤️‍🔥</span>
+              </div>           
+              <h1 class="text-center text-4xl md:text-5xl lg:text-6xl font-extrabold text-primaryTextColor lg:mb-6 md:mb-4 mb-3 w-full md:w-3/4 md:mx-auto mt-4 md:mt-0">
+                Your Path to Adoption Starts Here
+              </h1>
+              <p class="text-primaryTextColor text-sm md:text-lg font-medium text-center lg:w-3/4 md:mx-auto">
+                Open your heart and home. Browse our adoptable pets, learn about their stories and make a difference in their lives. Explore our platform to find your furry best friend.
+              </p>
+              <div class="view-more-btn text-center mt-8">
+                <button class="btn bg-secondaryColor border-none hover:bg-[#1d3862]"><a class="px-8 py-4 text-primaryColor font-bold lg:font-extrabold" href="#best-freind">View &thinsp;More</a></button>  
+              </div>
+            </div>
+            <div class="hero-image">
+              <img class="mx-auto lg:mt-6 mt-4" src="./images/pet.webp" alt="">
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- Hero Section Ends Here -->
+      <!-- Hero Section Ends Here -->
     </header>
     <!-- Header Section Ends Here -->
     <main>
-      <!-- Best Friend Starts Here -->
-      <section id="best-freind" class="adopt-container py-12 md:py-20 lg:py-28">
+      <!-- Best Friend Section Starts Here -->
+      <section id="best-freind" class="adopt-container pt-4 mb-8">
         <div class="container w-11/12 mx-auto">
           <div class="adopt-content">
             <div class="adopt-title lg:w-3/4 mx-auto flex flex-col justify-center items-center">
-              <h2 class="text-2xl md:text-3xl lg:text-4xl font-extrabold text-center mb-3">Adopt  Your  Best Friend</h2>
-              <p class="font-medium lg:w-3/4 text-center text-tertiary-color">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
-            </div> 
+              <h2 class="text-3xl md:text-4xl font-extrabold text-primaryTextColor text-center lg:mb-6 mb-4">Adopt Your Best Friend</h2>
+              <p class="font-semibold lg:w-3/4 text-center text-tertiaryTextColor">Discover our adoptable pets and find your furry best friend. Our adoption program helps you to find a friend that fits your lifestyle perfectly. Start your adoption journey today!</p>
+            </div>
+            <!-- Category Buttons Starts Here -->
             <div id="categories-btn" class="mt-12 lg:flex lg:justify-between lg:items-center mb-8 grid grid-cols-2 gap-4">
 
             </div>
-            
-            <div class="lg:px-0 px-3 width flex flex-col md:flex-row gap-4 w-full justify-between items-center mb-8">
+            <!-- Category Buttons Ends Here -->
+            <!-- Best Deal For You Text & Sort by Price Button Starts -->
+            <div class="lg:px-0 px-4 flex flex-col md:flex-row gap-4 w-full justify-between items-center mb-8">
               <p class="font-black text-2xl">Best Deal For you</p>
               <div class="flex justify-between items-center">
-                  <button onclick="sortPetsByPrice()" id="sort-by-price" class="btn bg-[#0E7A81] text-white text-xm px-6 font-bold rounded-xl">Sort by Price</button>
+                  <button onclick="sortPetsByPrice()" id="sort-by-price" class="bg-secondaryColor text-primaryColor text-xl px-8 py-4 font-extrabold rounded-xl border-none hover:bg-[#1d3862]">Sort by Price</button>
               </div>
             </div>
-
+            <!-- Best Deal For You Text & Sort by Price Button Ends -->
+            <!-- Pets Cards Section Starts Here -->
             <section id="card-datas" class="container mx-auto grid grid-cols-1 lg:grid-cols-4 lg:gap-4">
-              <div id="pets-cards-container" class="p-3 border-2 border-solid border-gray-300 rounded-xl col-span-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
-
-                <span id="loader" class="loading loading-bars loading-lg col-span-3 mx-auto hidden w-12"></span>
+              <div id="pets-cards-container" class="p-3 border-2 border-solid border-gray-300 rounded-xl col-span-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 
               </div>
               <div class="p-3 mt-2 lg:mt-0 border-2 border-solid border-gray-300 rounded-xl col-span-1">
-                <div id="liked-pet-container" class="flex flex-col lg:grid lg:grid-cols-2 gap-2">
+                <div id="liked-pet-container" class="grid grid-cols-2 gap-2">
 
                 </div>
               </div>
             </section>
+            <!-- Pets Cards Section Ends Here -->
           </div>
         </div>
       </section>      
-      <!-- Best Friend Ends Here -->
-      <!-- Details Modal -->
-      <!-- Open the modal using ID.showModal() method -->
+      <!-- Best Friend Section Ends Here -->
+      <!-- Details Modal Starts Here -->
       <button class="btn hidden" onclick="detailsModal.showModal()">open modal</button>
       <dialog id="detailsModal" class="modal modal-bottom sm:modal-middle">
-        <div class="modal-box ">
+        <div class="modal-box">
           <div id="modal-content">
 
-          </div>
-          
-          <div class="modal-action">
+          </div>          
+          <div class="modal-action w-full">
             <form method="dialog">
-              <!-- if there is a button in form, it will close the modal -->
-               <div class="">
-                <button class="modal-btn px-28 py-4 font-bold text-xl bg-[#0E7A8120] rounded-xl w-full">Cancel</button>
-               </div>
-              
+               <div class="flex justify-center items-center text-center">
+                <button class="btn btn-wide border-2 solid border-secondaryColor font-bold text-xl bg-userBorderColor w-full text-secondaryColor rounded-lg hover:bg-[#2a4068] hover:text-primaryColor">Cancel</button>
+               </div>  
             </form>
           </div>
         </div>
       </dialog>
-
-      <!-- Adopted Modal -->
-      <!-- Open the modal using ID.showModal() method -->
+      <!-- Details Modal Ends Here -->
+      <!-- Adopt Modal Starts Here -->
       <button class="btn hidden" onclick="adoptModal.showModal()">open modal</button>
       <dialog id="adoptModal" class="modal modal-bottom sm:modal-middle">
-        <div class="modal-box ">
+        <div class="modal-box">
           <div id="adopt-modal-content">
            
-          </div>
-          
+          </div>          
           <div class="modal-action">
             <form method="dialog">
-              <!-- if there is a button in form, it will close the modal -->
                <div class="">
-                <button id="closeBtn" class="modal-btn hidden px-28 py-4 font-bold text-xl bg-[#0E7A8120] rounded-xl w-full">Cancel</button>
-               </div>
-              
+                <button id="closeBtn" class="modal-btn hidden px-28 py-4 font-bold text-xl bg-userBorderColor rounded-xl w-full">Cancel</button>
+               </div>              
             </form>
           </div>
         </div>
       </dialog>
-
+      <!-- Adopt Modal Ends Here -->
     </main>
-    <!-- Footer section start here -->
-    
-    <footer class="w-full bg-primaryTextColor mt-8">
-      <section class="container lg:w-11/12 mx-auto width py-20 flex lg:justify-between lg:flex-row flex-col gap-12 lg:px-0 px-10">
-          <div class="left-side-content text-primaryColor flex flex-col gap-2 items-start">
+    <!-- Footer Section Starts Here -->
+    <footer id="footer-section" class="w-full bg-primaryTextColor py-6">
+      <section class="container lg:w-11/12 mx-auto pt-16 flex lg:justify-between lg:flex-row flex-col gap-12 lg:px-0 px-10">
+          <div class="left-side-content flex flex-col gap-2 items-start">
             <a class="flex items-center gap-2" href="index.html">
               <img src="./images/logo.webp" alt="Logo">
               <span class="text-2xl md:text-3xl font-extrabold text-primaryColor">Peddy</span>
             </a> 
-            <div class="info mt-6 flex flex-col gap-1">
+            <div class="info mt-4 flex flex-col gap-2">
               <p class="text-sm text-footerInfoColor">Location: av. Washington 165, NY CA 54003</p>
               <p class="text-sm text-footerInfoColor">Phone: +31 85 964 47 25</p>
               <p class="text-sm text-footerInfoColor">Email: info@yourdomain.com</p>
               <p class="text-sm text-footerInfoColor">Openings hours: 9.00 AM - 5.00 PM</p>
             </div>
             <div class="icons flex items-center gap-4 mt-2">
-              <a><img class="w-8" src="./images/facebook-logo.png" alt=""></a>
-              <a><img class="w-9" src="./images/twitter-logo.png" alt=""></a>
-              <a><img class="w-10" src="./images/youtube-logo.webp" alt=""></a>
-              <a><img class="w-8" src="./images/instagram-logo.webp" alt=""></a>
+              <a class="cursor-pointer" href="index.html"><img class="w-8" src="./images/facebook-logo.png" alt=""></a>
+              <a class="cursor-pointer" href="index.html"><img class="w-9" src="./images/twitter-logo.png" alt=""></a>
+              <a class="cursor-pointer" href="index.html"><img class="w-10" src="./images/youtube-logo.webp" alt=""></a>
+              <a class="cursor-pointer" href="index.html"><img class="w-8" src="./images/instagram-logo.webp" alt=""></a>
             </div> 
           </div>
-          <div class="middle-content text-primaryColor flex flex-col gap-2 items-start">
-              <h2 class="text-xl lg:text-2xl font-bold text-primaryColor mb-8">Useful Links</h2>
-              <ul class="flex flex-col gap-3">
-                <li><a class="text-4 text-neutral-300 transition duration-300 ease-in-out hover:text-white" href="#home">Home</a></li>
-                <li><a class="text-4 text-neutral-300 transition duration-300 ease-in-out hover:text-white" href="#services">About Us</a>
-                </li>
-                <li><a class="text-4 text-neutral-300 transition duration-300 ease-in-out hover:text-white" href="#portfolio">Animals</a>
-                </li>
-                <li><a class="text-4 text-neutral-300 transition duration-300 ease-in-out hover:text-white" href="#blogs">Foundation</a></li>
-                <li><a class="text-4 text-neutral-300 transition duration-300 ease-in-out hover:text-white" href="#contact-us">Contact</a>
-                </li>
+          <div class="middle-content flex flex-col items-start">
+              <h2 class="text-xl font-bold text-primaryColor mb-4">Useful Links</h2>
+              <ul class="flex flex-col gap-2">
+                <li><a class="text-footerInfoColor hover:text-white hover:font-semibold cursor-pointer">Home</a></li>
+                <li><a class="text-footerInfoColor hover:text-white hover:font-semibold cursor-pointer">About Us</a></li>
+                <li><a class="text-footerInfoColor hover:text-white hover:font-semibold cursor-pointer">Animals</a></li>
+                <li><a class="text-footerInfoColor hover:text-white hover:font-semibold cursor-pointer">Foundation</a></li>
+                <li><a class="text-footerInfoColor hover:text-white hover:font-semibold cursor-pointer">Contact</a></li>
               </ul>
           </div>
-          <div class="text-primaryColor flex flex-col gap-2 items-start">
-            <h2 class="text-sm font-bold text-primaryColor mb-8">Drop a Message</h2>
+          <div class="flex flex-col gap-2 items-start">
+            <h2 class="text-lg font-bold text-primaryColor mb-4">Drop a Message</h2>
             <label class="input input-bordered flex items-center gap-2 bg-emailInputColor w-full">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -248,13 +237,14 @@
               </svg>
               <input class="text-primaryColor w-full" type="text" class="grow" placeholder="Enter your email" />
             </label>
-            <div class="subscribe-btn mt-4 w-full">
-              <button class="btn w-full bg-secondaryColor border-none"><a class="px-8 py-4 text-primaryColor font-bold" href="#">Subscribe</a></button>  
+            <div class="subscribe-btn mt-2 w-full">
+              <button class="w-full bg-secondaryColor border-none rounded-lg px-8 py-3 hover:hover:bg-[#2b6295]"><a class=" text-primaryColor font-extrabold" href="#">Subscribe</a></button>  
             </div>
           </div>
       </section>
     </footer>
-    <!-- Footer section end here -->
+    <!-- Footer Section Ends Here -->
+    <!-- JavaScript File Linked Here -->
     <script src="./js/main.js"></script>
   </body>
 </html>
