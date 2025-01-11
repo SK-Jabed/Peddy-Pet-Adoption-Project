@@ -221,7 +221,7 @@ const displayLikedPetImage = (url) => {
 
     div.classList = "p-1 border-2 border-solid rounded-lg"
     div.innerHTML = `
-     <img class="rounded-lg overflow-hidden h-full w-full" src=${url} alt="">
+     <img class="rounded-lg overflow-hidden h-full w-full" src="${url}" alt="">
     `;
     // Add Images to Container
     likedPetContainer.appendChild(div);
